@@ -43,10 +43,10 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Welcome} />
-        <Route path="signin" component={Signin} />
+        <Route path="signin" component={Signin} onLeave={clearMessages} />
         <Route path="signout" component={Signout} />
-        <Route path="signup" component={Signup} />
-        <Route path="home" component={Home} onEnter={requireAuth} onExit={clearMessages} />
+        <Route path="signup" component={Signup} onLeave={clearMessages} />
+        <Route path="home" component={Home} onEnter={requireAuth} />
         <Route path="settings" component={RequireAuth(Settings)} />
         <Route path="game" component={RequireAuth(Game)} />
       </Route>
